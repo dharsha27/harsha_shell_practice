@@ -1,6 +1,6 @@
 #!/bin/bash
-    USPRESIDENT=Donald_Trump
-    IRANPRESIDNET=Iran
+    USPRESIDENT=$1
+    IRANPRESIDNET=$2
 
     echo "$USPRESIDENT:Hey Iran i am going to blast you "
     echo "$IRANPRESIDNET: Yes please , you are welcome"
