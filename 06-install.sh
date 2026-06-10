@@ -12,15 +12,19 @@ fi
 
 
 echo "Installing my sql"
+if [ $? -eq 0 ]; then 
+   echo "MYSQL is Alreaady Installed .. please skip"
 
-dnf install mysql -y
+else   
+    dnf install mysql -y
 
-if [ $? -ne 0 ]; then 
+    if [ $? -ne 0 ]; then 
    
-   echo "Installing mysql is ....FAILED"
-   exit 1
+          echo "Installing mysql is ....FAILED"
+          exit 1
 
-else
-   echo "Installing MYSQL is ....SUCCESS"
+    else
+          echo "Installing MYSQL is ....SUCCESS"
+    fi
 
 fi
