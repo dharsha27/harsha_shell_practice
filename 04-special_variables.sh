@@ -16,3 +16,4 @@ wait $!
 echo "Line no :: $LINENO" 
 echo "Script executed in seconds:: $SECONDS seconds" 
 
+echo "Generate a random num::$RANDOM"
