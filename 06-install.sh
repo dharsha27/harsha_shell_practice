@@ -5,7 +5,7 @@ USERID=$(id -u)
 
 if [ $USERID -ne 0 ]; then 
    echo "Please run the script with root access..."
-   exit 1
+#    exit 1
 fi
 
 
@@ -13,7 +13,7 @@ fi
 
 echo "Installing my sql"
 
-dnf install mysqqql -y
+dnf install mysql -y
 
 if [ $? -ne 0 ]; then 
    
