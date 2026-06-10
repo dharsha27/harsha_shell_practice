@@ -7,3 +7,4 @@ echo "script name :: $0"
 echo "who is the user :: $USER"
 echo "which directory:: $PWD"
 
+echo "PID of the linux script:: $$" 
