@@ -36,7 +36,7 @@ else
     VALIDATE "Mysql" $?
 fi
 
-Nginx Installation
+# Nginx Installation
 
 dnf list installed nginx &>> "$LOGS_FILE"
 Nginx_check=$?
