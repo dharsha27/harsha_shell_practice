@@ -4,7 +4,7 @@
 #!/bin/bash
 
 USERID=$(id -u)
-LOGS_DIR=/home/ec2-user/shell-lgs
+LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log"
 
 
