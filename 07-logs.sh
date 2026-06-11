@@ -10,7 +10,7 @@ LOGS_FILE="$LOGS_DIR/$0.log"
 
 VALIDATE(){
     if [ $2 -ne 0 ]; then 
-          echo "Installing $1 is ....FAILED" | tee -a $LOGS_FILE
+          echo "Installing $1 is ....FAILED" | tee -a "$LOGS_FILE"
           exit 1
     else
           echo "Installing $1 is ....SUCCESS"
@@ -21,7 +21,7 @@ VALIDATE(){
 dnf list installed mysql &>> $LOGS_FILE
 # echo "Installing my sql"
 if [ $? -eq 0 ]; then 
-   echo "MYSQL is Alreaady Installed .. please skip" | tee -a $LOGS_FILE
+   echo "MYSQL is Alreaady Installed .. please skip" | tee -a "$LOGS_FILE"
 
 else  
     echo "Installing Mysql " 
@@ -34,7 +34,7 @@ fi
 dnf list installed nginx &>> $LOGS_FILE
 echo "Installing my nginx"
 if [ $? -eq 0 ]; then 
-   echo "NGINX is Alreaady Installed .. please skip" | tee -a $LOGS_FILE
+   echo "NGINX is Alreaady Installed .. please skip" | tee -a "$LOGS_FILE"
 
 else  
     echo "Installing NGINX " 
