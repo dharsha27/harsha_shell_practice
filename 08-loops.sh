@@ -12,6 +12,14 @@ LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$SCRIPT_NAME.log"
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 
+# colours
+
+RED="\e[31m]"
+GREEN="\e[32m]"
+YELLOW="\e[33m]"
+NORMAL="\e[0m]"
+
+
 if [ $USERID -ne 0 ] ; then
    echo "Error: please run this script with root access" | tee -a "$LOGS_FILE"
    exit 1
@@ -22,10 +30,10 @@ mkdir -p /var/log/shell-script
 
 VALIDATE(){
     if [ $2 -ne 0 ]; then 
-          echo "$TIMESTAMP [Error] Installing $1 is ....FAILED" | tee -a "$LOGS_FILE"
+          echo -e "$TIMESTAMP [Error] Installing $1 is ....$RED FAILED $NORMAL" | tee -a "$LOGS_FILE"
           exit 1
     else
-          echo "$TIMESTAMP {[INFO] Installing $1 is ....SUCCESS" | tee -a "$LOGS_FILE"
+          echo -e "$TIMESTAMP {[INFO] Installing $1 is ....$GREEN SUCCESS $NORMAL" | tee -a "$LOGS_FILE"
     fi
 
 }
@@ -41,7 +49,7 @@ do
        VALIDATE "Installling $package" $?
     else
        
-        echo " $TIMESTAMP {[INFO] $package is  already installed ....skip " | tee -a "$LOGS_FILE"
+        echo -e " $TIMESTAMP {[INFO] $package is  already installed ....$YELLOW skip $NORMAL" | tee -a "$LOGS_FILE"
 
     fi
 
