@@ -7,8 +7,9 @@
 
 
 USERID=$(id -u)
+SCRIPT_NAME=$(basename "$0")
 LOGS_DIR=/var/log/shell-script 
-LOGS_FILE="$LOGS_DIR/$0.log"
+LOGS_FILE="$LOGS_DIR/$SCRIPT_NAME.log"
 
 if [ $USERID -ne 0 ] ; then
    echo "Error: please run this script with root access" | tee -a "$LOGS_FILE"
@@ -28,7 +29,7 @@ VALIDATE(){
 
 }
 
-for package in $@
+for package in "$@"
 do 
 
     echo "Installing $package"
@@ -39,7 +40,7 @@ do
        VALIDATE "Installling $package" $?
     else
        
-        echo "$package is  already installed ....skip "
+        echo "$package is  already installed ....skip " | tee -a "$LOGS_FILE"
 
     fi
 
