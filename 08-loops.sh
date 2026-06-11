@@ -5,7 +5,7 @@
 #     echo $num
 # done
 
-
+set -e
 USERID=$(id -u)
 SCRIPT_NAME=$(basename "$0")
 LOGS_DIR=/var/log/shell-script 
@@ -18,6 +18,8 @@ RED="\e[31m]"
 GREEN="\e[32m]"
 YELLOW="\e[33m]"
 NORMAL="\e[0m]"
+
+trap 'echo "error at $LINENO, command:$BASH_COMMAND" ' ERR
 
 
 if [ $USERID -ne 0 ] ; then
@@ -49,7 +51,7 @@ do
        VALIDATE "Installling $package" $?
     else
        
-        echo -e " $TIMESTAMP {[INFO] $package is  already installed ....$YELLOW skip $NORMAL" | tee -a "$LOGS_FILE"
+        echo -e " $TIMESTAMP [INFO] $package is  already installed ....$YELLOW skip $NORMAL" | tee -a "$LOGS_FILE"
 
     fi
 
