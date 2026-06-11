@@ -39,9 +39,10 @@ VALIDATE(){
 # Nginx Installation
 
 dnf list installed nginx &>> "$LOGS_FILE"
+Nginx_check=$?
 echo "Installing my nginx"
 
-if [ $? -eq 0 ]; then 
+if [ $Nginx_check -eq 0 ]; then 
    echo "NGINX is Alreaady Installed .. please skip" | tee -a "$LOGS_FILE"
 
 else  
